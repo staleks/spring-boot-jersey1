@@ -1,7 +1,7 @@
 /**
  * 
  */
-package rs.in.staleksit.jersey.model.dto;
+package rs.in.staleksit.demo.jersey1.dto;
 
 import java.io.Serializable;
 

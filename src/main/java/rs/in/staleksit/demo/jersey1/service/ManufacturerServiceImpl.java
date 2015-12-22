@@ -1,11 +1,11 @@
-package rs.in.staleksit.jersey.service;
+package rs.in.staleksit.demo.jersey1.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import rs.in.staleksit.jersey.model.dto.ManufacturerDTO;
+import rs.in.staleksit.demo.jersey1.dto.ManufacturerDTO;
 
 @Service("manufacturerService")
 public class ManufacturerServiceImpl implements ManufacturerService {

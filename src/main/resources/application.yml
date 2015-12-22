@@ -1,5 +1,15 @@
 server:
   port: 8080
+
+
+spring:
+  h2:
+    console:
+      enabled: true
+
+liquibase:
+  change-log: classpath:liquibase-changeLog.xml
+  
   
 eureka:
   client:

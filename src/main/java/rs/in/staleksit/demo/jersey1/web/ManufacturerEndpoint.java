@@ -1,4 +1,4 @@
-package rs.in.staleksit.jersey.web;
+package rs.in.staleksit.demo.jersey1.web;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import rs.in.staleksit.jersey.model.dto.ManufacturerDTO;
-import rs.in.staleksit.jersey.service.ManufacturerService;
+import rs.in.staleksit.demo.jersey1.dto.ManufacturerDTO;
+import rs.in.staleksit.demo.jersey1.service.ManufacturerService;
 
 @Component
 @Path("/manufacturers")

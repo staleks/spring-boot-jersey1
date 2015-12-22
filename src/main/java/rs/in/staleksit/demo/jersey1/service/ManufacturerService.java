@@ -1,8 +1,8 @@
-package rs.in.staleksit.jersey.service;
+package rs.in.staleksit.demo.jersey1.service;
 
 import java.util.List;
 
-import rs.in.staleksit.jersey.model.dto.ManufacturerDTO;
+import rs.in.staleksit.demo.jersey1.dto.ManufacturerDTO;
 
 public interface ManufacturerService {
 	
