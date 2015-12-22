@@ -16,7 +16,7 @@ $ ./gradlew clean build
 
 As a result, in ${PROJECT.ROOT}/build/libs will be generated file:
 
-demo-0.0.1-SNAPSHOT.jar
+demo-jersey1-0.0.1-SNAPSHOT.jar
 
 
 ## Starting application
