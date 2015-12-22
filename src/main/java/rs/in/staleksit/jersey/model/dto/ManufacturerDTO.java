@@ -15,9 +15,12 @@ public class ManufacturerDTO implements Serializable {
 	
 	private String name;
 	
-	public ManufacturerDTO(Integer id, String name) {
+	private boolean active;
+	
+	public ManufacturerDTO(Integer id, String name, boolean active) {
 		this.id = id;
 		this.name = name;
+		this.active = active;
 	}
 	
 	public Integer getId() {
@@ -26,6 +29,10 @@ public class ManufacturerDTO implements Serializable {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public boolean isActive() {
+		return active;
 	}
 
 }
