@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package rs.in.staleksit.demo.jersey1.web;
 
 import java.util.List;
@@ -9,29 +12,36 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import rs.in.staleksit.demo.jersey1.dto.ManufacturerDTO;
 import rs.in.staleksit.demo.jersey1.service.ManufacturerService;
 
+/**
+ *
+ */
 @Component
 @Path("/manufacturers")
 @Produces(MediaType.APPLICATION_JSON)
 public class ManufacturerEndpoint {
 	
-	@Autowired
 	private ManufacturerService manufacturerService;
 	
-	@GET
-	@Path("{id}")
-	public ManufacturerDTO findOne(@PathParam("id") Integer id) {
-		return manufacturerService.findOne(id); 
+	@Autowired
+	public ManufacturerEndpoint(@Qualifier("manufacturerService") ManufacturerService manufacturerService) {
+		this.manufacturerService = manufacturerService;
 	}
 	
 	@GET
 	public List<ManufacturerDTO> findAll() {
-		return manufacturerService.findAll(); 
+		return manufacturerService.findAll();
 	}
 	
+	@GET
+	@Path("{id}")
+	public ManufacturerDTO findOne(@PathParam("id") Integer id) {
+		return manufacturerService.findOne(id);
+	}
 
 }

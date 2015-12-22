@@ -1,35 +1,42 @@
+/**
+ * 
+ */
 package rs.in.staleksit.demo.jersey1.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.jtransfo.JTransfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rs.in.staleksit.demo.jersey1.dto.ManufacturerDTO;
+import rs.in.staleksit.demo.jersey1.model.manufacturer.ManufacturerImpl;
+import rs.in.staleksit.demo.jersey1.repository.ManufacturerRepository;
 
+/**
+ *
+ */
 @Service("manufacturerService")
-public class ManufacturerServiceImpl implements ManufacturerService {
-
+public class ManufacturerServiceImpl extends AbstractServiceImpl implements ManufacturerService {
 	
+	private ManufacturerRepository manufacturerRepository;
+	
+	@Autowired
+	public ManufacturerServiceImpl(ManufacturerRepository manufacturerRepository, JTransfo jTransfo) {
+		this.manufacturerRepository = manufacturerRepository;
+		setJTransfo(jTransfo);
+	}
+	
+	@Override
 	public ManufacturerDTO findOne(Integer id) {
-		return new ManufacturerDTO(1, "Samsung", true);
+		ManufacturerImpl repositoryResult = manufacturerRepository.findOne(id);
+		return getJTransfo().convert(repositoryResult, new ManufacturerDTO());
 	}
 
 	@Override
 	public List<ManufacturerDTO> findAll() {
-		return listOfManufacturers();
-	}
-	
-	private List<ManufacturerDTO> listOfManufacturers() {
-		List<ManufacturerDTO> result = new ArrayList<ManufacturerDTO>();
-		
-		ManufacturerDTO manufacturer1 = new ManufacturerDTO(1, "Samsung", true);
-		result.add(manufacturer1);
-		
-		ManufacturerDTO manufacturer2 = new ManufacturerDTO(2, "Alcatel", true);
-		result.add(manufacturer2);
-		
-		return result;
+		List<ManufacturerImpl> repositoryResult = manufacturerRepository.findAll();
+		return getJTransfo().convertList(repositoryResult, ManufacturerDTO.class);
 	}
 
 }

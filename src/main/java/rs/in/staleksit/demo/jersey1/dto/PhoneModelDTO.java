@@ -10,14 +10,14 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jtransfo.DomainClass;
 import org.jtransfo.MappedBy;
 
-import rs.in.staleksit.demo.jersey1.model.manufacturer.ManufacturerImpl;
+import rs.in.staleksit.demo.jersey1.model.phone.PhoneModelImpl;
 
 /**
  *
  */
-@DomainClass(domainClass = ManufacturerImpl.class)
-public class ManufacturerDTO implements Serializable {
-	private static final long serialVersionUID = -7389487557962362106L;
+@DomainClass(domainClass = PhoneModelImpl.class)
+public class PhoneModelDTO implements Serializable {
+	private static final long serialVersionUID = -7247749557505652738L;
 	
 	@MappedBy(field = "id")
 	private Integer id;
@@ -28,8 +28,14 @@ public class ManufacturerDTO implements Serializable {
 	@MappedBy(field = "active")
 	private boolean active;
 	
+	@MappedBy(field = "id", path = "manufacturer")
+	private Integer manufacturerId;
 	
-	public ManufacturerDTO() {
+	@MappedBy(field = "name", path = "manufacturer")
+	private String manufacturerName;
+	
+	
+	public PhoneModelDTO() {
 		
 	}
 
@@ -55,6 +61,22 @@ public class ManufacturerDTO implements Serializable {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public Integer getManufacturerId() {
+		return manufacturerId;
+	}
+
+	public void setManufacturerId(Integer manufacturerId) {
+		this.manufacturerId = manufacturerId;
+	}
+
+	public String getManufacturerName() {
+		return manufacturerName;
+	}
+
+	public void setManufacturerName(String manufacturerName) {
+		this.manufacturerName = manufacturerName;
 	}
 	
 	@Override
