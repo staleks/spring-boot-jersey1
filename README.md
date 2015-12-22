@@ -37,7 +37,7 @@ and execute following:
 
 ```
 
-java -jar demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=develop
+java -jar demo-jersey1-0.0.1-SNAPSHOT.jar --spring.profiles.active=develop
 
 ```
 
